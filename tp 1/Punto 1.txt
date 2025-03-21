@@ -1,3 +1,0 @@
-Tipo Primitivo: Un tipo primitivo es el que se le asigna a una variable, esta guarda un único valor, sea Int, Float, Char o demás. Si le asignamos un nuevo valor perdería el anterior y así sucesivamente.
-
-Tipo Referenciado: Estas variables almacenan referencias a objetos, por ejemplo... Hay un objeto en algún lugar de la memoria y la variable de referencia simplemente almacena la dirección a este objeto en la memoria (Parecido a un puntero en C/C++), estos pueden ser Arreglos, Listas, Objetos y demás.
