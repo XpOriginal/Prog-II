@@ -32,7 +32,7 @@ public class Fraccion {
         public void setDen(float den) {
             this.den = den;
         }
-        
+
         
         public Fraccion sumar(Fraccion aux){
             Fraccion res = new Fraccion();
