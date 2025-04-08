@@ -90,13 +90,12 @@ public class Punto_8 {
             auxString = sc.next();
             sc.nextLine();
             eAD[i].setCiudad(auxString);
-            eAD[i].toString();
         }
         
         
        System.out.println("--------------------------- TODOS LOS ESTUDIANTES ---------------------------");
        for(int i = 0; i < n; i++){
-           eAD[i].toString();
+           System.out.println(eAD[i]);
        }
     }
     
