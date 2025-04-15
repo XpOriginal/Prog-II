@@ -6,7 +6,7 @@ package punto_3;
 
 /**
  *
- * @author Usuario
+ * @author agusg
  */
 public abstract class Persona {
     private String nombre;
@@ -15,7 +15,7 @@ public abstract class Persona {
     private String titulo;
 
 
-    public Persona(String nombre, int dni, int estadoCivil, int anioDeEgreso) {
+    public Persona(String nombre, int dni, int estadoCivil) {
         this.nombre = nombre;
         this.dni = dni;
         this.estadoCivil = estadoCivil;
@@ -63,6 +63,10 @@ public abstract class Persona {
     }
     
     abstract String titulo();
+    
+    public String getNombreTitulo(){
+        return titulo() + " " + nombre;
+    }
     
     
 }

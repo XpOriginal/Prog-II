@@ -8,19 +8,18 @@ package punto_3;
  *
  * @author agusg
  */
-public class LicEnComputacion extends Persona{
+public class Otro extends Persona{
     private String titulo;
     
-    public LicEnComputacion() {
-    }
-
-    public LicEnComputacion(Persona p) {
-        super(p);
+    public Otro() {
     }
     
+    public Otro(Persona p) {
+        super(p);
+    }
+
     @Override
     public String titulo(){
-        return "Lic.";
+        return "Sr.";
     }
 }
-

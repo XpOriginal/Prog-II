@@ -6,11 +6,10 @@ package punto_3;
 
 /**
  *
- * @author Usuario
+ * @author agusg
  */
 public class IngInformatico extends Persona{
     private String titulo;
-    private int anioDeEgreso;
     
     public IngInformatico() {
     }
@@ -19,21 +18,8 @@ public class IngInformatico extends Persona{
         super(p);
     }
 
-    public IngInformatico(int anioDeEgreso, Persona p) {
-        super(p);
-        this.anioDeEgreso = anioDeEgreso;
-    }
-
-    public int getAnioDeEgreso() {
-        return anioDeEgreso;
-    }
-
-    public void setAnioDeEgreso(int anioDeEgreso) {
-        this.anioDeEgreso = anioDeEgreso;
-    }
-    
     @Override
     public String titulo(){
-        return "Usted es Ingeniero en Informatico";
+        return "Ing.";
     }
 }

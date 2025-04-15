@@ -2,25 +2,24 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package punto_3;
+package punto_4;
 
 /**
  *
  * @author agusg
  */
-public class LicEnComputacion extends Persona{
-    private String titulo;
-    
-    public LicEnComputacion() {
+public class Isoceles extends Triangulo{
+
+    public Isoceles() {
     }
 
-    public LicEnComputacion(Persona p) {
-        super(p);
+    public Isoceles(Figura f, Triangulo t) {
+        super(f, t);
     }
     
     @Override
-    public String titulo(){
-        return "Lic.";
+    public void mostrarFigura(){
+        super.mostrarFigura();
+        System.out.println("Tipo: Isóceles");
     }
 }
-
