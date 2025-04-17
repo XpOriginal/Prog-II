@@ -55,4 +55,9 @@ public class CuentaAhorro extends Cuenta{
     public void actualizarSaldo(){
         super.setSaldo(super.getSaldo() * interes);
     }
+    
+    @Override
+    public String tipoCuenta(){
+        return "Cuenta Ahorro";
+    }
 }

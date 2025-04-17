@@ -17,7 +17,7 @@ public class CuentaCorriente extends Cuenta{
     public CuentaCorriente(Cuenta c) {
         super(c);
     }
-    
+
     @Override
     public boolean retirar(double x){
         if(x > super.getSaldo()){
@@ -32,5 +32,10 @@ public class CuentaCorriente extends Cuenta{
     @Override
     public void actualizarSaldo(){
         super.setSaldo(super.getSaldo() * interesFijo);
+    }
+    
+    @Override
+    public String tipoCuenta(){
+        return "Cuenta Corriente";
     }
 }

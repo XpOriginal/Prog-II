@@ -26,7 +26,7 @@ public abstract class Cuenta {
         this.cliente = c.getCliente();
         this.numeroCuenta = c.getNumeroCuenta();
         this.saldo = c.getSaldo();
-    }
+    } 
     
     public long getNumeroCuenta() {
         return numeroCuenta;
@@ -54,6 +54,7 @@ public abstract class Cuenta {
     
     public abstract boolean retirar(double x);
     public abstract void actualizarSaldo();
+    public abstract String tipoCuenta();
     
     
 }
