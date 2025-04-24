@@ -3,14 +3,27 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package Vista;
+import ejemplointerfazgrafica.EjemploInterfazGrafica;
 import Modelo.EstudianteADistancia;
 import Controlador.EstudianteADistanciaController;
+import java.util.ArrayList;
+import java.util.List;
 /**
  *
  * @author Usuario
  */
 public class FormularioEstudianteADistancia extends javax.swing.JFrame {
 
+    private EstudianteADistanciaController controlador;
+
+    public FormularioEstudianteADistancia(EstudianteADistanciaController controlador) {
+        this.controlador = controlador;
+        initComponents();
+    }
+    
+    
+    
+    
     /**
      * Creates new form FormularioEstudianteADistancia
      */
@@ -48,6 +61,12 @@ public class FormularioEstudianteADistancia extends javax.swing.JFrame {
         jLabel3.setText("Nombre");
 
         txtNombre.setText("Ingresar...");
+        txtNombre.setToolTipText("");
+        txtNombre.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                txtNombreMouseClicked(evt);
+            }
+        });
         txtNombre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtNombreActionPerformed(evt);
@@ -104,7 +123,7 @@ public class FormularioEstudianteADistancia extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(0, 1, Short.MAX_VALUE)
+                        .addGap(33, 33, 33)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addComponent(cargarEstudiante)
@@ -122,14 +141,14 @@ public class FormularioEstudianteADistancia extends javax.swing.JFrame {
                                                 .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING)))
                                         .addGap(21, 21, 21)))
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(intNumDocumento, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(numTipoDocumento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtApellido, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(intNumDocumento, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(209, 209, 209))))
+                                    .addComponent(txtApellido, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(jLabel6)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 22, Short.MAX_VALUE)
                         .addComponent(estadoCivil, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(329, 329, 329))))
         );
@@ -155,7 +174,7 @@ public class FormularioEstudianteADistancia extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(numTipoDocumento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel2))
-                        .addGap(16, 16, 16)
+                        .addGap(22, 22, 22)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(intNumDocumento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel5))
@@ -188,6 +207,7 @@ public class FormularioEstudianteADistancia extends javax.swing.JFrame {
     private void cargarEstudianteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cargarEstudianteActionPerformed
         EstudianteADistancia estDistancia = new EstudianteADistancia();
         EstudianteADistanciaController estDistanciaController = new EstudianteADistanciaController(estDistancia);
+        List <EstudianteADistancia> listaEAD = new ArrayList<>();
         
         estDistanciaController.setNombre(txtNombre.getText());
         estDistanciaController.setApellido(txtApellido.getText());
@@ -195,12 +215,16 @@ public class FormularioEstudianteADistancia extends javax.swing.JFrame {
         estDistanciaController.setNumDocumento(intNumDocumento.getText());
         estDistanciaController.setEstadoCivil(estadoCivil.getSelectedItem().toString());
         
+        listaEAD.add(estDistanciaController.getEstudianteADistancia());
         
     }//GEN-LAST:event_cargarEstudianteActionPerformed
 
     private void numTipoDocumentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_numTipoDocumentoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_numTipoDocumentoActionPerformed
+
+    private void txtNombreMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtNombreMouseClicked
+    }//GEN-LAST:event_txtNombreMouseClicked
 
     /**
      * @param args the command line arguments
