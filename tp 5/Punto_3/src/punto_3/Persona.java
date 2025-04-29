@@ -6,7 +6,7 @@ package punto_3;
 
 /**
  *
- * @author agusg
+ * @author Usuario
  */
 public class Persona{
     private String nombre;
