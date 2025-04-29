@@ -16,6 +16,9 @@ public class EstudianteADistanciaController {
     private EstudianteADistancia estudianteADistancia;
     private List<EstudianteADistancia> listaEAD;
 
+    public EstudianteADistanciaController() {
+    }
+
     public EstudianteADistanciaController(EstudianteADistancia estudianteADistancia) {
         this.estudianteADistancia = estudianteADistancia;
     }
@@ -75,4 +78,11 @@ public class EstudianteADistanciaController {
     public EstudianteADistancia getEstudianteADistancia(){
         return estudianteADistancia;
     }
+
+    @Override
+    public String toString() {
+        return "Nombre: " + estudianteADistancia.getNombre() + " " + estudianteADistancia.getApellido() + "/n Tipo Documento: " + estudianteADistancia.getTipoDocumento() + "/n Numero de Documento: " + estudianteADistancia.getNumDocumento() + "/n Estado Civil: " + estudianteADistancia.getEstadoCivil();
+    }
+    
+    
 }

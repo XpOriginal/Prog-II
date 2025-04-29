@@ -9,11 +9,12 @@ package Modelo;
  * @author Usuario
  */
 public class Persona {
-    private String nombre, apellido;
-    private String numDocumento;
-    private String tipoDocumento;      //1: DNI          2: Pasaporte      3: Otro
-    private String estadoCivil;        //1: Soltero/a    2: Casado/a       3: Viudo/a
-    private Fecha fecha = new Fecha();
+    protected String nombre;
+    protected String apellido;
+    protected String numDocumento;
+    protected String tipoDocumento;      //1: DNI          2: Pasaporte      3: Otro
+    protected String estadoCivil;        //1: Soltero/a    2: Casado/a       3: Viudo/a
+    protected Fecha fecha = new Fecha();
 
     public Persona() {
     }

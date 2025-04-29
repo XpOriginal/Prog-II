@@ -52,7 +52,7 @@ public class EstudianteADistancia extends Estudiante{
 
     @Override
     public String toString() {
-        return super.toString() + "EstudianteADistancia{" + "ciudad=" + ciudad + ", usuario=" + usuario + ", contraseña=" + contraseña + '}';
+        return "Nombre: " + nombre + " " + apellido + "/n Tipo Documento: " + tipoDocumento + "/n Numero de Documento: " + numDocumento + "/n Estado Civil: " + estadoCivil;
     }
     
     
