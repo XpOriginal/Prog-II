@@ -20,6 +20,7 @@ public class EstudianteADistanciaController {
     }
 
     public EstudianteADistanciaController(EstudianteADistancia estudianteADistancia) {
+        listaEAD = new ArrayList<>();
         this.estudianteADistancia = estudianteADistancia;
     }
 
@@ -31,9 +32,9 @@ public class EstudianteADistanciaController {
         return listaEAD;
     }
 
-    public void setListaEAD(List<EstudianteADistancia> listaEAD) {
-        this.listaEAD = listaEAD;
-    }
+     public void cargaEAD(EstudianteADistancia ead){
+        listaEAD.add(ead);
+    } 
     
     public void setNombre(String nombre){
         estudianteADistancia.setNombre(nombre);
@@ -79,6 +80,8 @@ public class EstudianteADistanciaController {
         return estudianteADistancia;
     }
 
+ 
+    
     @Override
     public String toString() {
         return "Nombre: " + estudianteADistancia.getNombre() + " " + estudianteADistancia.getApellido() + "/n Tipo Documento: " + estudianteADistancia.getTipoDocumento() + "/n Numero de Documento: " + estudianteADistancia.getNumDocumento() + "/n Estado Civil: " + estudianteADistancia.getEstadoCivil();

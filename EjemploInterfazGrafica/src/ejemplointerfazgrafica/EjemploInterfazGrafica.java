@@ -26,9 +26,6 @@ public class EjemploInterfazGrafica {
         FormularioEstudianteADistancia ventana = new FormularioEstudianteADistancia(controladorEAD);
         ventana.setVisible(true);
         
-        for(EstudianteADistancia c : controladorEAD.getListaEAD()){
-            System.out.println(c);
-        }
     }
     
 }

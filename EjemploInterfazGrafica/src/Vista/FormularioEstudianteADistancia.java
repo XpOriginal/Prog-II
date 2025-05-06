@@ -46,7 +46,7 @@ public class FormularioEstudianteADistancia extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         txtApellido = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
-        intNumDocumento = new javax.swing.JTextField();
+        txtNumDocumento = new javax.swing.JTextField();
         numTipoDocumento = new javax.swing.JComboBox<>();
         jLabel6 = new javax.swing.JLabel();
         estadoCivil = new javax.swing.JComboBox<>();
@@ -77,6 +77,11 @@ public class FormularioEstudianteADistancia extends javax.swing.JFrame {
         jLabel4.setText("Apellido");
 
         txtApellido.setText("Ingresar...");
+        txtApellido.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                txtApellidoMouseClicked(evt);
+            }
+        });
         txtApellido.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtApellidoActionPerformed(evt);
@@ -85,10 +90,15 @@ public class FormularioEstudianteADistancia extends javax.swing.JFrame {
 
         jLabel5.setText("Num. Doc.");
 
-        intNumDocumento.setText("Ingresar...");
-        intNumDocumento.addActionListener(new java.awt.event.ActionListener() {
+        txtNumDocumento.setText("Ingresar...");
+        txtNumDocumento.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                txtNumDocumentoMouseClicked(evt);
+            }
+        });
+        txtNumDocumento.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                intNumDocumentoActionPerformed(evt);
+                txtNumDocumentoActionPerformed(evt);
             }
         });
 
@@ -152,7 +162,7 @@ public class FormularioEstudianteADistancia extends javax.swing.JFrame {
                     .addComponent(jLabel3))
                 .addGap(25, 25, 25)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(intNumDocumento, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtNumDocumento, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(numTipoDocumento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtApellido, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -184,7 +194,7 @@ public class FormularioEstudianteADistancia extends javax.swing.JFrame {
                             .addComponent(jLabel2))
                         .addGap(22, 22, 22)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(intNumDocumento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtNumDocumento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel5))))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -197,7 +207,7 @@ public class FormularioEstudianteADistancia extends javax.swing.JFrame {
                 .addGap(26, 26, 26))
         );
 
-        layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {estadoCivil, intNumDocumento, numTipoDocumento, txtApellido, txtNombre});
+        layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {estadoCivil, numTipoDocumento, txtApellido, txtNombre, txtNumDocumento});
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -210,24 +220,26 @@ public class FormularioEstudianteADistancia extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtApellidoActionPerformed
 
-    private void intNumDocumentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_intNumDocumentoActionPerformed
+    private void txtNumDocumentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNumDocumentoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_intNumDocumentoActionPerformed
+    }//GEN-LAST:event_txtNumDocumentoActionPerformed
 
     private void cargarEstudianteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cargarEstudianteActionPerformed
         EstudianteADistancia estDistancia = new EstudianteADistancia();
         EstudianteADistanciaController estDistanciaController = new EstudianteADistanciaController(estDistancia);
-        List <EstudianteADistancia> listaEAD = new ArrayList<>();
+        //List <EstudianteADistancia> listaEAD = new ArrayList<>();
         
         estDistanciaController.setNombre(txtNombre.getText());
         estDistanciaController.setApellido(txtApellido.getText());
         estDistanciaController.setTipoDocumento(numTipoDocumento.getSelectedItem().toString());
-        estDistanciaController.setNumDocumento(intNumDocumento.getText());
+        estDistanciaController.setNumDocumento(txtNumDocumento.getText());
         estDistanciaController.setEstadoCivil(estadoCivil.getSelectedItem().toString());
         
-        listaEAD.add(estDistanciaController.getEstudianteADistancia());
+        controladorMain.cargaEAD(estDistanciaController.getEstudianteADistancia());
         
-        controladorMain.setListaEAD(listaEAD);
+        for(EstudianteADistancia c : controladorMain.getListaEAD()){
+            System.out.println(c);
+        }
         
     }//GEN-LAST:event_cargarEstudianteActionPerformed
 
@@ -236,6 +248,7 @@ public class FormularioEstudianteADistancia extends javax.swing.JFrame {
     }//GEN-LAST:event_numTipoDocumentoActionPerformed
 
     private void txtNombreMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtNombreMouseClicked
+        txtNombre.setText("");
     }//GEN-LAST:event_txtNombreMouseClicked
 
     private void cargarEstudianteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cargarEstudianteMouseClicked
@@ -243,12 +256,21 @@ public class FormularioEstudianteADistancia extends javax.swing.JFrame {
     }//GEN-LAST:event_cargarEstudianteMouseClicked
 
     private void mostrarEstudianteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mostrarEstudianteActionPerformed
-        // TODO add your handling code here:
-
+        // TODO add your handling code here
         for(EstudianteADistancia c : controladorMain.getListaEAD()){
             System.out.println(c);
         }
     }//GEN-LAST:event_mostrarEstudianteActionPerformed
+
+    private void txtApellidoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtApellidoMouseClicked
+        // TODO add your handling code here:
+        txtApellido.setText("");
+    }//GEN-LAST:event_txtApellidoMouseClicked
+
+    private void txtNumDocumentoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtNumDocumentoMouseClicked
+        // TODO add your handling code here:
+        txtNumDocumento.setText("");
+    }//GEN-LAST:event_txtNumDocumentoMouseClicked
 
     /**
      * @param args the command line arguments
@@ -288,7 +310,6 @@ public class FormularioEstudianteADistancia extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton cargarEstudiante;
     private javax.swing.JComboBox<String> estadoCivil;
-    private javax.swing.JTextField intNumDocumento;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -299,5 +320,6 @@ public class FormularioEstudianteADistancia extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> numTipoDocumento;
     private javax.swing.JTextField txtApellido;
     private javax.swing.JTextField txtNombre;
+    private javax.swing.JTextField txtNumDocumento;
     // End of variables declaration//GEN-END:variables
 }
