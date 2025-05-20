@@ -1,0 +1,11 @@
+print("Ingrese un numero entero")
+auxInt1 = int(input())
+print("Ingrese el segundo entero")
+auxInt2 = int(input())
+res = (auxInt1/auxInt2)
+print("Division (int): ", (int)(res))
+print("Division (Flotante): ", (float(auxInt1)/float(auxInt2)))
+
+print("Modulo: ", (auxInt1%auxInt2))
+print("Potencia (Primer numero): ", (auxInt1**2))
+print("Potencia (Segundo numero): ", (auxInt2**2))
