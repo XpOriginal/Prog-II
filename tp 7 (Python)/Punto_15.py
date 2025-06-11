@@ -1,7 +1,7 @@
 import random
 
 numeroSecreto = random.randint(0,5)
-print(numeroSecreto)
+#print(numeroSecreto)
 while True:
     auxInt = int(input("Ingrese un numero \n"))
     if auxInt == numeroSecreto:
